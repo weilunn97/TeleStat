@@ -1,6 +1,3 @@
-
-
-
 [![Contributors][contributors-shield]][contributors-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
@@ -9,11 +6,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <img href="[https://telestat-817a8.firebaseapp.com/](https://telestat-817a8.firebaseapp.com/)" src="readme_mockups/logo.jpg" />
-</p>
-
-
-  <h1 href="[https://telestat-817a8.firebaseapp.com/](https://telestat-817a8.firebaseapp.com/)" align="center">🌐 TeleStat 🌐</h1>
+  
+  <h1 align="center"><a href="https://telestat-817a8.firebaseapp.com/">🌐 TeleStat 🌐</a></h1>
 
   <p align="center">
     Built to provide 🔎 insight 🔎 into your Telegram conversations
