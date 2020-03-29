@@ -76,10 +76,12 @@ class MetricGraphing extends Component {
         <div>
           {/* TODO : PLACE THIS DIV ONTO A FRONT CARD*/}
           {/*TODO : PLACE THE NAME ON TOP RIGHT CORNER*/}
+
           <label className="card-container">
             <input type="checkbox" />
             <div className="card">
               <div className="front">
+                <div className="Graphing-name">{this.props.sOne}</div>
                 <div className="ScatterPlot">
                   <ScatterPlot
                     data={{
@@ -96,6 +98,7 @@ class MetricGraphing extends Component {
                 </div>
               </div>
               <div className="back">
+                <div className="Graphing-name">{this.props.sTwo}</div>
                 <div className="ScatterPlot">
                   <ScatterPlot
                     data={{

@@ -276,13 +276,13 @@ html, body {
 
 /***FLIPCARDS FOR DISPLAYING THE GRAPHS***/
 .card-container {
-    height: 32rem;
+    height: 35rem;
     width: 56.5rem;
     box-shadow: 0px 0px 50px #ffa502;
     cursor: pointer;
     display: block;
     left: 50%;
-    margin-top: -0.8em;
+    margin-top: -0.7em;
     opacity: 100%;
     perspective: 1000px;
     position: absolute;
@@ -308,15 +308,14 @@ html, body {
 }
 
 .card div {
-    height: 100%;
-    width: 100%;
     background: transparent;
-    text-align: center;
+    border-radius: 30px;
+    height: 100%;
     line-height: 200px;
     position: absolute;
-    -webkit-backface-visibility: hidden;
+    width: 100%;
     backface-visibility: hidden;
-    border-radius: 30px;
+    -webkit-backface-visibility: hidden;
 }
 
 .card .back {
@@ -333,12 +332,21 @@ input {
     -webkit-transform: rotateX(180deg);
 }
 
+.Graphing-name {
+    margin-top: -2rem;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+}
+
+
 /***FLIPCARDS FOR DISPLAYING THE GRAPHS***/
 
 /***ACTUAL SCATTERPLOT***/
 .ScatterPlot {
     position: absolute;
-    margin-top: 3em;
+    margin-top: 6em;
 }
 
 @keyframes Main-logo-spin {

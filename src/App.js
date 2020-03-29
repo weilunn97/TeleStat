@@ -18,7 +18,7 @@ import bg8 from "./metric_bg/bg8.jpg";
 
 class App extends Component {
   state = {
-    DEBUG: true, // DEBUG : SWITCH TO FALSE IN PRODUCTION
+    DEBUG: false, // DEBUG : SWITCH TO FALSE IN PRODUCTION
     uploadedFile: null,
     contentsString: null,
     analyzer: null,
@@ -159,104 +159,104 @@ class App extends Component {
       return (
         <div className="Metric">
           <AwesomeSlider animation="cubeAnimation">
-            <div className="Metric-bg" data-src={bg1}>
-              <MetricInterface
-                index={"1"}
-                startDate={this.state.analyzer.startDate}
-                endDate={this.state.analyzer.endDate}
-                title={"Messages"}
-                sOne={this.state.analyzer.sOne}
-                sTwo={this.state.analyzer.sTwo}
-                sOneMetric={this.state.analyzer.sOneMsgCount}
-                sTwoMetric={this.state.analyzer.sTwoMsgCount}
-                sOneComment={this.state.analyzer.sOneMsgComment}
-                sTwoComment={this.state.analyzer.sTwoMsgComment}
-              />
-            </div>
-            <div className="Metric-bg" data-src={bg2}>
-              <MetricInterface
-                index={"2"}
-                startDate={this.state.analyzer.startDate}
-                endDate={this.state.analyzer.endDate}
-                title={"Words"}
-                sOne={this.state.analyzer.sOne}
-                sTwo={this.state.analyzer.sTwo}
-                sOneMetric={this.state.analyzer.sOneWordCount}
-                sTwoMetric={this.state.analyzer.sTwoWordCount}
-                sOneComment={this.state.analyzer.sOneWordComment}
-                sTwoComment={this.state.analyzer.sTwoWordComment}
-              />
-            </div>
-            <div className="Metric-bg" data-src={bg3}>
-              <MetricInterface
-                index={"3"}
-                startDate={this.state.analyzer.startDate}
-                endDate={this.state.analyzer.endDate}
-                title={"Words per message"}
-                sOne={this.state.analyzer.sOne}
-                sTwo={this.state.analyzer.sTwo}
-                sOneMetric={this.state.analyzer.sOneWPMCount}
-                sTwoMetric={this.state.analyzer.sTwoWPMCount}
-                sOneComment={this.state.analyzer.sOneWPMComment}
-                sTwoComment={this.state.analyzer.sTwoWPMComment}
-              />
-            </div>
-            <div className="Metric-bg" data-src={bg4}>
-              <MetricInterface
-                index={"4"}
-                startDate={this.state.analyzer.startDate}
-                endDate={this.state.analyzer.endDate}
-                title={"Photos"}
-                sOne={this.state.analyzer.sOne}
-                sTwo={this.state.analyzer.sTwo}
-                sOneMetric={this.state.analyzer.sOnePhotoCount}
-                sTwoMetric={this.state.analyzer.sTwoPhotoCount}
-                sOneComment={this.state.analyzer.sOnePhotoComment}
-                sTwoComment={this.state.analyzer.sTwoPhotoComment}
-              />
-            </div>
-            <div className="Metric-bg" data-src={bg5}>
-              <MetricInterface
-                index={"5"}
-                startDate={this.state.analyzer.startDate}
-                endDate={this.state.analyzer.endDate}
-                title={"Videos"}
-                sOne={this.state.analyzer.sOne}
-                sTwo={this.state.analyzer.sTwo}
-                sOneMetric={this.state.analyzer.sOneVideoCount}
-                sTwoMetric={this.state.analyzer.sTwoVideoCount}
-                sOneComment={this.state.analyzer.sOneVideoComment}
-                sTwoComment={this.state.analyzer.sTwoVideoComment}
-              />
-            </div>
-            <div className="Metric-bg" data-src={bg6}>
-              <MetricInterface
-                index={"6"}
-                startDate={this.state.analyzer.startDate}
-                endDate={this.state.analyzer.endDate}
-                title={"Stickers"}
-                sOne={this.state.analyzer.sOne}
-                sTwo={this.state.analyzer.sTwo}
-                sOneMetric={this.state.analyzer.sOneStickerCount}
-                sTwoMetric={this.state.analyzer.sTwoStickerCount}
-                sOneComment={this.state.analyzer.sOneStickerComment}
-                sTwoComment={this.state.analyzer.sTwoStickerComment}
-              />
-            </div>
-            <div className="Metric-bg" data-src={bg7}>
-              <MetricInterface
-                index={"7"}
-                startDate={this.state.analyzer.startDate}
-                endDate={this.state.analyzer.endDate}
-                title={"Average Reply Timing (Hours)"}
-                sOne={this.state.analyzer.sOne}
-                sTwo={this.state.analyzer.sTwo}
-                sOneMetric={this.state.analyzer.sOneAverageRT}
-                sTwoMetric={this.state.analyzer.sTwoAverageRT}
-                sOneComment={this.state.analyzer.sOneAverageRTComment}
-                sTwoComment={this.state.analyzer.sTwoAverageRTComment}
-              />
-            </div>
+            {/*<div className="Metric-bg" data-src={bg1}>*/}
+            {/*  <MetricInterface*/}
+            {/*    index={"1"}*/}
+            {/*    startDate={this.state.analyzer.startDate}*/}
+            {/*    endDate={this.state.analyzer.endDate}*/}
+            {/*    title={"Messages"}*/}
+            {/*    sOne={this.state.analyzer.sOne}*/}
+            {/*    sTwo={this.state.analyzer.sTwo}*/}
+            {/*    sOneMetric={this.state.analyzer.sOneMsgCount}*/}
+            {/*    sTwoMetric={this.state.analyzer.sTwoMsgCount}*/}
+            {/*    sOneComment={this.state.analyzer.sOneMsgComment}*/}
+            {/*    sTwoComment={this.state.analyzer.sTwoMsgComment}*/}
+            {/*  />*/}
+            {/*</div>*/}
+            {/*<div className="Metric-bg" data-src={bg2}>*/}
+            {/*  <MetricInterface*/}
+            {/*    index={"2"}*/}
+            {/*    startDate={this.state.analyzer.startDate}*/}
+            {/*    endDate={this.state.analyzer.endDate}*/}
+            {/*    title={"Words"}*/}
+            {/*    sOne={this.state.analyzer.sOne}*/}
+            {/*    sTwo={this.state.analyzer.sTwo}*/}
+            {/*    sOneMetric={this.state.analyzer.sOneWordCount}*/}
+            {/*    sTwoMetric={this.state.analyzer.sTwoWordCount}*/}
+            {/*    sOneComment={this.state.analyzer.sOneWordComment}*/}
+            {/*    sTwoComment={this.state.analyzer.sTwoWordComment}*/}
+            {/*  />*/}
+            {/*</div>*/}
+            {/*<div className="Metric-bg" data-src={bg3}>*/}
+            {/*  <MetricInterface*/}
+            {/*    index={"3"}*/}
+            {/*    startDate={this.state.analyzer.startDate}*/}
+            {/*    endDate={this.state.analyzer.endDate}*/}
+            {/*    title={"Words per message"}*/}
+            {/*    sOne={this.state.analyzer.sOne}*/}
+            {/*    sTwo={this.state.analyzer.sTwo}*/}
+            {/*    sOneMetric={this.state.analyzer.sOneWPMCount}*/}
+            {/*    sTwoMetric={this.state.analyzer.sTwoWPMCount}*/}
+            {/*    sOneComment={this.state.analyzer.sOneWPMComment}*/}
+            {/*    sTwoComment={this.state.analyzer.sTwoWPMComment}*/}
+            {/*  />*/}
+            {/*</div>*/}
+            {/*<div className="Metric-bg" data-src={bg4}>*/}
+            {/*  <MetricInterface*/}
+            {/*    index={"4"}*/}
+            {/*    startDate={this.state.analyzer.startDate}*/}
+            {/*    endDate={this.state.analyzer.endDate}*/}
+            {/*    title={"Photos"}*/}
+            {/*    sOne={this.state.analyzer.sOne}*/}
+            {/*    sTwo={this.state.analyzer.sTwo}*/}
+            {/*    sOneMetric={this.state.analyzer.sOnePhotoCount}*/}
+            {/*    sTwoMetric={this.state.analyzer.sTwoPhotoCount}*/}
+            {/*    sOneComment={this.state.analyzer.sOnePhotoComment}*/}
+            {/*    sTwoComment={this.state.analyzer.sTwoPhotoComment}*/}
+            {/*  />*/}
+            {/*</div>*/}
+            {/*<div className="Metric-bg" data-src={bg5}>*/}
+            {/*  <MetricInterface*/}
+            {/*    index={"5"}*/}
+            {/*    startDate={this.state.analyzer.startDate}*/}
+            {/*    endDate={this.state.analyzer.endDate}*/}
+            {/*    title={"Videos"}*/}
+            {/*    sOne={this.state.analyzer.sOne}*/}
+            {/*    sTwo={this.state.analyzer.sTwo}*/}
+            {/*    sOneMetric={this.state.analyzer.sOneVideoCount}*/}
+            {/*    sTwoMetric={this.state.analyzer.sTwoVideoCount}*/}
+            {/*    sOneComment={this.state.analyzer.sOneVideoComment}*/}
+            {/*    sTwoComment={this.state.analyzer.sTwoVideoComment}*/}
+            {/*  />*/}
+            {/*</div>*/}
+            {/*<div className="Metric-bg" data-src={bg6}>*/}
+            {/*  <MetricInterface*/}
+            {/*    index={"6"}*/}
+            {/*    startDate={this.state.analyzer.startDate}*/}
+            {/*    endDate={this.state.analyzer.endDate}*/}
+            {/*    title={"Stickers"}*/}
+            {/*    sOne={this.state.analyzer.sOne}*/}
+            {/*    sTwo={this.state.analyzer.sTwo}*/}
+            {/*    sOneMetric={this.state.analyzer.sOneStickerCount}*/}
+            {/*    sTwoMetric={this.state.analyzer.sTwoStickerCount}*/}
+            {/*    sOneComment={this.state.analyzer.sOneStickerComment}*/}
+            {/*    sTwoComment={this.state.analyzer.sTwoStickerComment}*/}
+            {/*  />*/}
+            {/*</div>*/}
+            {/*<div className="Metric-bg" data-src={bg7}>*/}
+            {/*  <MetricInterface*/}
+            {/*    index={"7"}*/}
+            {/*    startDate={this.state.analyzer.startDate}*/}
+            {/*    endDate={this.state.analyzer.endDate}*/}
+            {/*    title={"Average Reply Timing (Hours)"}*/}
+            {/*    sOne={this.state.analyzer.sOne}*/}
+            {/*    sTwo={this.state.analyzer.sTwo}*/}
+            {/*    sOneMetric={this.state.analyzer.sOneAverageRT}*/}
+            {/*    sTwoMetric={this.state.analyzer.sTwoAverageRT}*/}
+            {/*    sOneComment={this.state.analyzer.sOneAverageRTComment}*/}
+            {/*    sTwoComment={this.state.analyzer.sTwoAverageRTComment}*/}
+            {/*  />*/}
+            {/*</div>*/}
             <div className="Metric-bg" data-src={bg8}>
               <MetricInterface
                 graphing={true}

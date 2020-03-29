@@ -3,7 +3,6 @@ import MetricNumerical from "./MetricNumerical";
 import React, { Component } from "react";
 
 class MetricInterface extends Component {
-  // TODO : ADD A STATIC CONVERSATION DATETIME RANGE ON TOP RIGHT CORNER
   render() {
     if (this.props.graphing) {
       return (

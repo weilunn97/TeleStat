@@ -777,7 +777,6 @@ class Analyzer {
   };
 
   generateComments = () => {
-    //TODO : GENERATE COMMENTS EACH METRIC
     this.generateMessageComments();
     this.generateWordComments();
     this.generateWPMComments();

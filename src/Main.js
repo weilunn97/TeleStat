@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import logo from "./logo.png";
 import HelpModal from "./HelpModal";
 
-// TODO : CREATE A MODAL FOR STEP-BY-STEP-GUIDE
-// TODO : MODAL SHOULD ALLOW TOGGLE BETWEEN DESKTOP / MOBILE GUIDE
-
 class Main extends Component {
   render() {
     return (
