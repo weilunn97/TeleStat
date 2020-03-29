@@ -7,7 +7,7 @@
 <br />
 <p align="center">
   
-  <h1 align="center"><a href="https://telestat-817a8.firebaseapp.com/">🌐 TeleStat 🌐</a></h1>
+  <h1 align="center"><a target="_blank" href="https://telestat-817a8.firebaseapp.com/">🌐 TeleStat 🌐</a></h1>
 
   <p align="center">
     Built to provide 🔎 insight 🔎 into your Telegram conversations
