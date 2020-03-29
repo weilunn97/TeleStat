@@ -12,15 +12,15 @@
   <p align="center">
     Built to provide 🔎 insight 🔎 into your Telegram conversations
     <p align="center">
-    The Telegram-equivalent of <a href="[[https://github.com/weilunn97/WhatsAnalyzer--Django-/blob/master/README.md](https://github.com/weilunn97/WhatsAnalyzer--Django-/blob/master/README.md)-]([https://github.com/weilunn97/WhatsAnalyzer--Django-/blob/master/README.md](https://github.com/weilunn97/WhatsAnalyzer--Django-/blob/master/README.md))">WhatsAnalyzer Django
+    The Telegram-equivalent of <a href="https://github.com/weilunn97/WhatsAnalyzer--Django-/blob/master/README.md">WhatsAnalyzer Django
     <br />
     <br />
     <br />
-    <a href="[https://github.com/weilunn97/TeleStat/tree/master/src](https://github.com/weilunn97/TeleStat/tree/master/src)">Source Code</a>
+    <a href="https://github.com/weilunn97/TeleStat/tree/master/src">Source Code</a>
     ·
-    <a href="[https://github.com/weilunn97/TeleStat/issues](https://github.com/weilunn97/TeleStat/issues)">Report Bug</a>
+    <a href="https://github.com/weilunn97/TeleStat/issues">Report Bug</a>
     ·
-    <a href="[https://github.com/weilunn97/TeleStat/issues](https://github.com/weilunn97/TeleStat/issues)">Request Feature</a>
+    <a href="https://github.com/weilunn97/TeleStat/issues">Request Feature</a>
   </p>
 </p>
 
@@ -44,7 +44,7 @@
 ## ✏ About The Project ✏
 <p align="center">
   <a href="https://weilunn97.wixsite.com/journeywithjed">
-    <img src="readme_mockups/landing_page.JPG" />
+    <img href="https://telestat-817a8.firebaseapp.com/ src="readme_mockups/landing_page.JPG" />
   </a>
 
 Ever wanted to get a deep dive into your Telegram chats? TeleStat provides you a side-by-side comparison on various metrics, including the **message, words, photos, videos, and stickers count**, as well as the average reply timings of both parties in the conversation!  
@@ -65,10 +65,10 @@ These are the key ⚒ frameworks and tools ⚒ which were used extensively durin
 
 
 ## 📸 Usage & Demo 📸
-<img src="readme_mockups/messages.JPG" /><br><br>
-<img src="readme_mockups/wpm.JPG" /><br><br>
-<img src="readme_mockups/stickers.JPG" /><br><br>
-<img src="readme_mockups/rt_graph.JPG" /><br><br>
+<img href="https://telestat-817a8.firebaseapp.com/ src="readme_mockups/messages.JPG" /><br><br>
+<img href="https://telestat-817a8.firebaseapp.com/ src="readme_mockups/wpm.JPG" /><br><br>
+<img href="https://telestat-817a8.firebaseapp.com/ src="readme_mockups/stickers.JPG" /><br><br>
+<img href="https://telestat-817a8.firebaseapp.com/ src="readme_mockups/rt_graph.JPG" /><br><br>
 
 
 
