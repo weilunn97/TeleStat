@@ -57,7 +57,7 @@ const HelpModal = props => {
     animated: true,
     centered: true,
     large: true,
-    title: "3. Take note of your DOWNLOAD 📂, you might need it later.",
+    title: "3. Note your download 📂, and maximize the size limit.",
     buttons: [
       <Modali.Button
         isStyleDefault

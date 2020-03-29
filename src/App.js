@@ -14,6 +14,7 @@ import bg4 from "./metric_bg/bg4.jpg";
 import bg5 from "./metric_bg/bg5.jpg";
 import bg6 from "./metric_bg/bg6.jpg";
 import bg7 from "./metric_bg/bg7.jpg";
+import bg8 from "./metric_bg/bg8.jpg";
 
 class App extends Component {
   state = {
@@ -31,13 +32,23 @@ class App extends Component {
   componentDidMount() {
     if (this.state.DEBUG) {
       const analyzer = new Analyzer("");
+      analyzer.startDate = "Tue 10 Mar 2020";
+      analyzer.endDate = "Wed 11 Mar 2020";
       analyzer.sOne = "WINNIE";
       analyzer.sOneMsgCount = 1000;
       analyzer.sOneWordCount = 10000;
       analyzer.sOneWPMCount = 100;
       analyzer.sOnePhotoCount = 10;
       analyzer.sOneVideoCount = 1;
+      analyzer.sOneStickerCount = 10;
       analyzer.sOneAverageRT = 1000000;
+      analyzer.sOneMsgComment = "DEBUG COMMENT";
+      analyzer.sOneWordComment = "DEBUG COMMENT";
+      analyzer.sOneWPMComment = "DEBUG COMMENT";
+      analyzer.sOnePhotoComment = "DEBUG COMMENT";
+      analyzer.sOneVideoComment = "DEBUG COMMENT";
+      analyzer.sOneStickerComment = "DEBUG COMMENT";
+      analyzer.sOneAverageRTComment = "DEBUG COMMENT";
       analyzer.sOneDatetimes = [new Date(), new Date(), new Date()];
       analyzer.sOneTimings = [1, 1, 1];
       analyzer.sTwo = "DUAH BAI";
@@ -46,7 +57,15 @@ class App extends Component {
       analyzer.sTwoWPMCount = 200;
       analyzer.sTwoPhotoCount = 20;
       analyzer.sTwoVideoCount = 2;
+      analyzer.sTwoStickerCount = 20;
       analyzer.sTwoAverageRT = 2000000;
+      analyzer.sTwoMsgComment = "DEBUG COMMENT";
+      analyzer.sTwoWordComment = "DEBUG COMMENT";
+      analyzer.sTwoWPMComment = "DEBUG COMMENT";
+      analyzer.sTwoPhotoComment = "DEBUG COMMENT";
+      analyzer.sTwoVideoComment = "DEBUG COMMENT";
+      analyzer.sTwoStickerComment = "DEBUG COMMENT";
+      analyzer.sTwoAverageRTComment = "DEBUG COMMENT";
       analyzer.sTwoDatetimes = [new Date(), new Date(), new Date()];
       analyzer.sTwoTimings = [2, 2, 2];
 
@@ -58,7 +77,6 @@ class App extends Component {
       });
     }
   }
-
   // DEBUG //
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -89,7 +107,7 @@ class App extends Component {
     });
   };
 
-  helpBtnClickHandler = event => {
+  helpBtnClickHandler = _ => {
     this.setState({
       showHelp: true
     });
@@ -98,7 +116,7 @@ class App extends Component {
 
   updateContentsString = () => {
     const reader = new FileReader();
-    reader.onload = (reader => {
+    reader.onload = (_ => {
       return e => {
         this.setState({
           contentsString: e.target.result
@@ -122,6 +140,7 @@ class App extends Component {
       console.log(this.state.analyzer.sOneWPMCount);
       console.log(this.state.analyzer.sOnePhotoCount);
       console.log(this.state.analyzer.sOneVideoCount);
+      console.log(this.state.analyzer.sOneStickerCount);
       console.log(this.state.analyzer.sOneAverageRT);
       console.log(this.state.analyzer.sOneTimings);
       console.log(this.state.analyzer.sOneDatetimes);
@@ -131,6 +150,7 @@ class App extends Component {
       console.log(this.state.analyzer.sTwoWPMCount);
       console.log(this.state.analyzer.sTwoPhotoCount);
       console.log(this.state.analyzer.sTwoVideoCount);
+      console.log(this.state.analyzer.sTwoStickerCount);
       console.log(this.state.analyzer.sTwoAverageRT);
       console.log(this.state.analyzer.sTwoTimings);
       console.log(this.state.analyzer.sTwoDatetimes);
@@ -142,67 +162,107 @@ class App extends Component {
             <div className="Metric-bg" data-src={bg1}>
               <MetricInterface
                 index={"1"}
+                startDate={this.state.analyzer.startDate}
+                endDate={this.state.analyzer.endDate}
                 title={"Messages"}
                 sOne={this.state.analyzer.sOne}
                 sTwo={this.state.analyzer.sTwo}
                 sOneMetric={this.state.analyzer.sOneMsgCount}
                 sTwoMetric={this.state.analyzer.sTwoMsgCount}
+                sOneComment={this.state.analyzer.sOneMsgComment}
+                sTwoComment={this.state.analyzer.sTwoMsgComment}
               />
             </div>
             <div className="Metric-bg" data-src={bg2}>
               <MetricInterface
                 index={"2"}
+                startDate={this.state.analyzer.startDate}
+                endDate={this.state.analyzer.endDate}
                 title={"Words"}
                 sOne={this.state.analyzer.sOne}
                 sTwo={this.state.analyzer.sTwo}
                 sOneMetric={this.state.analyzer.sOneWordCount}
                 sTwoMetric={this.state.analyzer.sTwoWordCount}
+                sOneComment={this.state.analyzer.sOneWordComment}
+                sTwoComment={this.state.analyzer.sTwoWordComment}
               />
             </div>
             <div className="Metric-bg" data-src={bg3}>
               <MetricInterface
                 index={"3"}
+                startDate={this.state.analyzer.startDate}
+                endDate={this.state.analyzer.endDate}
                 title={"Words per message"}
                 sOne={this.state.analyzer.sOne}
                 sTwo={this.state.analyzer.sTwo}
                 sOneMetric={this.state.analyzer.sOneWPMCount}
                 sTwoMetric={this.state.analyzer.sTwoWPMCount}
+                sOneComment={this.state.analyzer.sOneWPMComment}
+                sTwoComment={this.state.analyzer.sTwoWPMComment}
               />
             </div>
             <div className="Metric-bg" data-src={bg4}>
               <MetricInterface
                 index={"4"}
+                startDate={this.state.analyzer.startDate}
+                endDate={this.state.analyzer.endDate}
                 title={"Photos"}
                 sOne={this.state.analyzer.sOne}
                 sTwo={this.state.analyzer.sTwo}
                 sOneMetric={this.state.analyzer.sOnePhotoCount}
                 sTwoMetric={this.state.analyzer.sTwoPhotoCount}
+                sOneComment={this.state.analyzer.sOnePhotoComment}
+                sTwoComment={this.state.analyzer.sTwoPhotoComment}
               />
             </div>
             <div className="Metric-bg" data-src={bg5}>
               <MetricInterface
                 index={"5"}
+                startDate={this.state.analyzer.startDate}
+                endDate={this.state.analyzer.endDate}
                 title={"Videos"}
                 sOne={this.state.analyzer.sOne}
                 sTwo={this.state.analyzer.sTwo}
                 sOneMetric={this.state.analyzer.sOneVideoCount}
                 sTwoMetric={this.state.analyzer.sTwoVideoCount}
+                sOneComment={this.state.analyzer.sOneVideoComment}
+                sTwoComment={this.state.analyzer.sTwoVideoComment}
               />
             </div>
             <div className="Metric-bg" data-src={bg6}>
               <MetricInterface
                 index={"6"}
+                startDate={this.state.analyzer.startDate}
+                endDate={this.state.analyzer.endDate}
+                title={"Stickers"}
+                sOne={this.state.analyzer.sOne}
+                sTwo={this.state.analyzer.sTwo}
+                sOneMetric={this.state.analyzer.sOneStickerCount}
+                sTwoMetric={this.state.analyzer.sTwoStickerCount}
+                sOneComment={this.state.analyzer.sOneStickerComment}
+                sTwoComment={this.state.analyzer.sTwoStickerComment}
+              />
+            </div>
+            <div className="Metric-bg" data-src={bg7}>
+              <MetricInterface
+                index={"7"}
+                startDate={this.state.analyzer.startDate}
+                endDate={this.state.analyzer.endDate}
                 title={"Average Reply Timing (Hours)"}
                 sOne={this.state.analyzer.sOne}
                 sTwo={this.state.analyzer.sTwo}
                 sOneMetric={this.state.analyzer.sOneAverageRT}
                 sTwoMetric={this.state.analyzer.sTwoAverageRT}
+                sOneComment={this.state.analyzer.sOneAverageRTComment}
+                sTwoComment={this.state.analyzer.sTwoAverageRTComment}
               />
             </div>
-            <div className="Metric-bg" data-src={bg7}>
+            <div className="Metric-bg" data-src={bg8}>
               <MetricInterface
                 graphing={true}
-                index={"7"}
+                index={"8"}
+                startDate={this.state.analyzer.startDate}
+                endDate={this.state.analyzer.endDate}
                 title={"Reply Timing Chart"}
                 sOne={this.state.analyzer.sOne}
                 sTwo={this.state.analyzer.sTwo}

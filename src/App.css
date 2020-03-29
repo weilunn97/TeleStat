@@ -79,6 +79,27 @@ html, body {
     display: none;
 }
 
+.Metric-daterange {
+    background-color: #fff;
+    border-radius: 60px;
+    box-shadow: 0px 5px 5px rgba(256, 256, 256, 0.9);
+    font-size: 0.8rem;
+    font-weight: 700;
+    height: 3rem;
+    letter-spacing: 1px;
+    line-height: 3rem;
+    margin: 0 auto;
+    margin-top: 3rem;
+    text-transform: uppercase;
+    width: 25rem;
+}
+
+.Metric-daterange:hover {
+    background-color: #fff;
+    box-shadow: -5px 15px 15px rgba(256, 256, 256, 0.8);
+    transform: translateY(-5px);
+}
+
 .Metric {
     text-align: center;
     width:98.7vw;
@@ -122,7 +143,7 @@ html, body {
 
 .circle-container {
     position: absolute;
-    margin-top: 10em;
+    margin-top: 4em;
 }
 
 .circle {
@@ -133,22 +154,23 @@ html, body {
 }
 
 .metric-qty {
-    font-size: 50px;
+    font-size: 4rem;
     margin-top: 1em;
     letter-spacing: 5px;
 }
 
 .metric-title {
-    font-size: 16px;
+    font-size: 1rem;
     margin-top: 0.2em;
     letter-spacing: 3px;
 }
 
 .metric-comment {
-    font-size: 14px;
+    font-size: 0.8rem;
     font-style: italic;
     font-weight: bold;
     letter-spacing: 2px;
+    line-height: 1.5rem;
     margin-top: 2em;
     max-width: 45ch;
     text-overflow: ellipsis;
@@ -190,91 +212,39 @@ html, body {
 }
 
 .C5 {
-    --circleColor: #78e08f;
-    --qtyColor: #240b36;
+    --circleColor: #78E08F;
+    --qtyColor: #240B36;
     --titleColor: #831432;
-    --commentColor: #c31432;
+    --commentColor: #C31432;
     background-color: var(--circleColor);
 }
 
 .C6 {
-    --circleColor: #55efc4;
+    --circleColor: #55EFC4;
     --qtyColor: #021B79;
     --titleColor: #040A43;
     --commentColor: #0505E6;
     background-color: var(--circleColor);
 }
 
-.C1 .metric-qty {
-    color: var(--qtyColor);
+.C7 {
+    --circleColor: #F9CA24;
+    --qtyColor: #0F2027;
+    --titleColor: #103A43;
+    --commentColor: #1C5364;
+    background-color: var(--circleColor);
 }
 
-.C2 .metric-qty {
-    color: var(--qtyColor);
+.metric-qty {
+    color: var(--qtyColor)
 }
 
-.C3 .metric-qty {
-    color: var(--qtyColor);
+.metric-title {
+    color: var(--titleColor)
 }
 
-.C4 .metric-qty {
-    color: var(--qtyColor);
-}
-
-.C5 .metric-qty {
-    color: var(--qtyColor);
-}
-
-.C6 .metric-qty {
-    color: var(--qtyColor);
-}
-
-.C1 .metric-title {
-    color: var(--titleColor);
-}
-
-.C2 .metric-title {
-    color: var(--titleColor);
-}
-
-.C3 .metric-title {
-    color: var(--titleColor);
-}
-
-.C4 .metric-title {
-    color: var(--titleColor);
-}
-
-.C5 .metric-title {
-    color: var(--titleColor);
-}
-
-.C6 .metric-title {
-    color: var(--titleColor);
-}
-
-.C1 .metric-comment {
-    color: var(--commentColor);
-}
-
-.C2 .metric-comment {
-    color: var(--commentColor);
-}
-
-.C3 .metric-comment {
-    color: var(--commentColor);
-}
-
-.C4 .metric-comment {
-    color: var(--commentColor);
-}
-
-.C5 .metric-comment {
-    color: var(--commentColor);
-}
-
-.C6 .metric-comment {
-    color: var(--commentColor);
+.metric-comment {
+    color: var(--commentColor)
 }
 
 .front, .back {

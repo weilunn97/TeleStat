@@ -17,6 +17,7 @@ const POLL = '<div class="question bold">\n';
 const MEDIA_TAG = "<media>\n";
 const MEDIA_PHOTO_TAG = "<media_photo>\n";
 const MEDIA_VIDEO_TAG = "<media_video>\n";
+const MEDIA_STICKER_TAG = "<media_sticker>\n";
 const MESSAGE_TAG = "<msg>\n";
 const NOFWD_TAG = "<nfwd>\n";
 const CONTACT_CARD_TAG = "<contact_card>\n";
@@ -25,7 +26,9 @@ const POLL_TAG = "<poll>\n";
 class Analyzer {
   constructor(contentString) {
     this.contentsString = contentString;
-    /////////////////////////////////////////////
+    this.startDate = null;
+    this.endDate = null;
+    /////////////////////////METRICS (SENDER ONE)/////////////////////////
     this.sOne = null;
     this.dfOne = null;
     this.sOneMsgCount = null;
@@ -33,10 +36,19 @@ class Analyzer {
     this.sOneWPMCount = null;
     this.sOnePhotoCount = null;
     this.sOneVideoCount = null;
-    this.sOneTimings = null;
+    this.sOneStickerCount = null;
+    this.sOneMsgComment = null;
+    this.sOneWordComment = null;
+    this.sOneWPMComment = null;
+    this.sOnePhotoComment = null;
+    this.sOneVideoComment = null;
+    this.sOneStickerComment = null;
+    this.sOneAverageRTComment = null;
     this.sOneDatetimes = null;
+    this.sOneTimings = null;
     this.sOneAverageRT = null;
-    /////////////////////////////////////////////
+
+    /////////////////////////METRICS (SENDER TWO)/////////////////////////
     this.sTwo = null;
     this.dfTwo = null;
     this.sTwoMsgCount = null;
@@ -44,8 +56,16 @@ class Analyzer {
     this.sTwoWPMCount = null;
     this.sTwoPhotoCount = null;
     this.sTwoVideoCount = null;
-    this.sTwoTimings = null;
+    this.sTwoStickerCount = null;
+    this.sTwoMsgComment = null;
+    this.sTwoWordComment = null;
+    this.sTwoWPMComment = null;
+    this.sTwoPhotoComment = null;
+    this.sTwoVideoComment = null;
+    this.sTwoStickerComment = null;
+    this.sTwoAverageRTComment = null;
     this.sTwoDatetimes = null;
+    this.sTwoTimings = null;
     this.sTwoAverageRT = null;
   }
 
@@ -58,6 +78,7 @@ class Analyzer {
     let df = this.createDf(linesFinished);
     df = this.cleanDf(df);
     this.generateMetrics(df);
+    this.generateComments();
   };
 
   createLinesRaw = contentsString => {
@@ -92,7 +113,7 @@ class Analyzer {
         // Show sender's name
         linesProcessed.push(linesRaw[i + 1]);
 
-        // Save it on buf`fers, as original sender or forwarder
+        // Save it on buffers, as original sender or forwarder
         if (!linesRaw[i + 1].includes(FWD_SENDER)) {
           lastNameShown = linesRaw[i + 1];
         } else {
@@ -236,7 +257,7 @@ class Analyzer {
         linesProcessed[i].replace(/ +via @.+\| FWD/, " | FWD");
       }
 
-      // Remove "via @" occurences
+      // Remove "via @" occurrences
       linesProcessed[i] = linesProcessed[i].replace(/ +via @.+/, "");
     }
     return linesProcessed;
@@ -327,9 +348,12 @@ class Analyzer {
       lineSplit[3] = MEDIA_PHOTO_TAG;
     } else if (lineSplit[4].includes("[Video")) {
       lineSplit[3] = MEDIA_VIDEO_TAG;
+    } else if (lineSplit[4].includes("[Sticker]")) {
+      lineSplit[3] = MEDIA_STICKER_TAG;
     }
 
     // DEBUG : INTEGRITY CHECK FOR EACH ELEMENT
+    if (typeof lineSplit[0] !== "object") return null; // DATETIME
     if (typeof lineSplit[0] !== "object") return null; // DATETIME
     if (typeof lineSplit[1] !== "string") return null; // SENDER
     if (typeof lineSplit[2] !== "boolean") return null; //FORWARDED
@@ -364,7 +388,7 @@ class Analyzer {
   };
 
   extractSender = line => {
-    // TOOD : FIX THE BUG WHERE DATETIME IS EXTRACTED AFTER VIDEOS (08.03.2020 11:58:08)
+    // BUG FIX : WHERE DATETIME IS EXTRACTED AFTER VIDEOS (08.03.2020 11:58:08)
     if (line.match(/\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}/)) return null;
     // STRIP THE TRAILING NEWLINE CHARACTERS
     return line.slice(0, -1);
@@ -378,6 +402,7 @@ class Analyzer {
     if (line.includes("msg")) return "msg";
     else if (line.includes("media_photo")) return "media_photo";
     else if (line.includes("media_video")) return "media_video";
+    else if (line.includes("media_sticker")) return "media_sticker";
     else if (line.includes("contact_card")) return "contact_card";
   };
 
@@ -387,12 +412,12 @@ class Analyzer {
   };
 
   cleanDf = df => {
-    // TODO : CONSIDER STICKERS
     const media_set = new Set([
       "media",
       "msg",
       "media_photo",
       "media_video",
+      "media_sticker",
       "contact_card"
     ]);
     df = df.set(
@@ -424,7 +449,7 @@ class Analyzer {
   filterDatetimes = (
     datetimes,
     timings,
-    CUTOFF_MIN_HOURS = 0.01, // AKA 36 SECONDS
+    CUTOFF_MIN_HOURS = 0.016666, // AKA 1 MINUTE
     CUTOFF_MAX_HOURS = 168 // AKA 7 DAYS
   ) => {
     const datetimes_filtered = [];
@@ -465,14 +490,16 @@ class Analyzer {
       this.sOneWordCount,
       this.sOneWPMCount,
       this.sOnePhotoCount,
-      this.sOneVideoCount
+      this.sOneVideoCount,
+      this.sOneStickerCount
     ] = this.generateCount(this.dfOne);
     [
       this.sTwoMsgCount,
       this.sTwoWordCount,
       this.sTwoWPMCount,
       this.sTwoPhotoCount,
-      this.sTwoVideoCount
+      this.sTwoVideoCount,
+      this.sTwoStickerCount
     ] = this.generateCount(this.dfTwo);
 
     // REPLY TIMING COUNT AND THEIR AVERAGE
@@ -495,6 +522,17 @@ class Analyzer {
     // COMPUTE AVERAGE REPLY TIMINGS
     this.sOneAverageRT = this.computeAvg(this.sOneTimings);
     this.sTwoAverageRT = this.computeAvg(this.sTwoTimings);
+
+    // START AND END DATE OF CONVERSATION
+    this.startDate = new Date(
+      Math.min(this.sOneDatetimes[0], this.sTwoDatetimes[0])
+    ).toDateString();
+    this.endDate = new Date(
+      Math.max(
+        this.sOneDatetimes[this.sOneDatetimes.length - 1],
+        this.sTwoDatetimes[this.sTwoDatetimes.length - 1]
+      )
+    ).toDateString();
   };
 
   generateCount = senderDf => {
@@ -513,7 +551,6 @@ class Analyzer {
     );
 
     // PHOTO COUNT
-    // TODO : IN CLEAN, PERFORM APPLY ON TYPE TO STANDARDIZED INPUT FORMAT
     const senderPhotoCount = senderDf.filter(
       senderDf.get("type").eq("media_photo")
     ).length;
@@ -523,13 +560,19 @@ class Analyzer {
       senderDf.get("type").eq("media_video")
     ).length;
 
+    // STICKER COUNT
+    const senderStickerCount = senderDf.filter(
+      senderDf.get("type").eq("media_sticker")
+    ).length;
+
     // RETURN ALL METRICS
     return [
       senderMsgCount,
       senderWordCount,
       senderWPMCount,
       senderPhotoCount,
-      senderVideoCount
+      senderVideoCount,
+      senderStickerCount
     ];
   };
 
@@ -577,6 +620,171 @@ class Analyzer {
         dfTwo.get("datetime").values.toArray()
       ]
     };
+  };
+  // 50 vs 70
+  generateMessageComments = () => {
+    const MIN = Math.min(this.sOneMsgCount, this.sTwoMsgCount);
+    const MAX = Math.max(this.sOneMsgCount, this.sTwoMsgCount);
+    const DIFF = MAX - MIN;
+    const MESSAGE_LOW = sender =>
+      `On average, ${sender} sends 🥈${parseInt(
+        (DIFF / MAX) * 100
+      )}% fewer🥈 messages.`;
+    const MESSAGE_HIGH = sender =>
+      `On average, ${sender} sends 🥇${parseInt(
+        (DIFF / MIN) * 100
+      )}% more🥇 messages.`;
+    this.sOneMsgComment =
+      this.sOneMsgCount >= this.sTwoMsgCount
+        ? MESSAGE_HIGH(this.sOne)
+        : MESSAGE_LOW(this.sOne);
+    this.sTwoMsgComment =
+      this.sTwoMsgCount >= this.sOneMsgCount
+        ? MESSAGE_HIGH(this.sTwo)
+        : MESSAGE_LOW(this.sTwo);
+  };
+
+  generateWordComments = () => {
+    const MIN = Math.min(this.sOneWordCount, this.sTwoWordCount);
+    const MAX = Math.max(this.sOneWordCount, this.sTwoWordCount);
+    const DIFF = MAX - MIN;
+    const WORD_LOW = sender =>
+      `${sender}, the quieter one in this conversation... by ${parseInt(
+        (DIFF / MAX) * 100
+      )}%! 🙂`;
+    const WORD_HIGH = sender =>
+      `Quite a chatty one aren't you, ${sender}! 😉 On average, you were ${parseInt(
+        (DIFF / MIN) * 100
+      )}% as... verbose!`;
+    this.sOneWordComment =
+      this.sOneWordCount >= this.sTwoWordCount
+        ? WORD_HIGH(this.sOne)
+        : WORD_LOW(this.sOne);
+    this.sTwoWordComment =
+      this.sTwoWordCount >= this.sOneWordCount
+        ? WORD_HIGH(this.sTwo)
+        : WORD_LOW(this.sTwo);
+  };
+
+  generateWPMComments = () => {
+    const MIN = Math.min(this.sOneWPMCount, this.sTwoWPMCount);
+    const MAX = Math.max(this.sOneWPMCount, this.sTwoWPMCount);
+    const DIFF = MAX - MIN;
+    const WPM_LOW = sender =>
+      `Obviously the quieter one, ${sender}! 😉 On average, your texts are ${parseInt(
+        (DIFF / MAX) * 100
+      )}% shorter.`;
+    const WPM_HIGH = sender =>
+      `Quite a chatty one aren't you, ${sender}! 😉 On average, your texts are ${parseInt(
+        (DIFF / MIN) * 100
+      )}% longer.`;
+    this.sOneWPMComment =
+      this.sOneWPMCount >= this.sTwoWPMCount
+        ? WPM_HIGH(this.sOne)
+        : WPM_LOW(this.sOne);
+    this.sTwoWPMComment =
+      this.sTwoWPMCount >= this.sOneWPMCount
+        ? WPM_HIGH(this.sTwo)
+        : WPM_LOW(this.sTwo);
+  };
+
+  generatePhotoComments = () => {
+    const MIN = Math.min(this.sOnePhotoCount, this.sTwoPhotoCount);
+    const MAX = Math.max(this.sOnePhotoCount, this.sTwoPhotoCount);
+    const DIFF = MAX - MIN;
+    const PHOTO_LOW = sender =>
+      `Perhaps words suit you better, ${sender}! 😉 On average, you sent ${parseInt(
+        (DIFF / MAX) * 100
+      )}% fewer pictures!`;
+    const PHOTO_HIGH = sender =>
+      `Maybe you express yourself better with 📸📸📸, ${sender}? On average, you sent ${parseInt(
+        (DIFF / MIN) * 100
+      )}% more pictures!`;
+    this.sOnePhotoComment =
+      this.sOnePhotoCount >= this.sTwoPhotoCount
+        ? PHOTO_HIGH(this.sOne)
+        : PHOTO_LOW(this.sOne);
+    this.sTwoPhotoComment =
+      this.sTwoPhotoCount >= this.sOnePhotoCount
+        ? PHOTO_HIGH(this.sTwo)
+        : PHOTO_LOW(this.sTwo);
+  };
+
+  generateVideoComments = () => {
+    const MIN = Math.min(this.sOneVideoCount, this.sTwoVideoCount);
+    const MAX = Math.max(this.sOneVideoCount, this.sTwoVideoCount);
+    const DIFF = MAX - MIN;
+    const VIDEO_LOW = sender =>
+      `Videos are certainly an even more expressive medium than pictures, ${sender}! 😎 In total, you sent ${parseInt(
+        (DIFF / MAX) * 100
+      )}% fewer 📽!`;
+    const VIDEO_HIGH = sender =>
+      `Lots of videos you sent, ${sender}! 😉 In total, you sent ${parseInt(
+        (DIFF / MIN) * 100
+      )}% more 📽!`;
+    this.sOneVideoComment =
+      this.sOneVideoCount >= this.sTwoVideoCount
+        ? VIDEO_HIGH(this.sOne)
+        : VIDEO_LOW(this.sOne);
+    this.sTwoVideoComment =
+      this.sTwoVideoCount >= this.sOneVideoCount
+        ? VIDEO_HIGH(this.sTwo)
+        : VIDEO_LOW(this.sTwo);
+  };
+
+  generateStickerComments = () => {
+    const MIN = Math.min(this.sOneStickerCount, this.sTwoStickerCount);
+    const MAX = Math.max(this.sOneStickerCount, this.sTwoStickerCount);
+    const DIFF = MAX - MIN;
+    const STICKER_LOW = sender =>
+      `Get a sticker pack already, ${sender}! 😎 In total, you sent ${parseInt(
+        (DIFF / MAX) * 100
+      )}% fewer stickers!`;
+    const STICKER_HIGH = sender =>
+      `Please share some of your stickers, ${sender}! 😉 In total, you sent ${parseInt(
+        (DIFF / MIN) * 100
+      )}% more stickers!`;
+    this.sOneStickerComment =
+      this.sOneStickerCount >= this.sTwoStickerCount
+        ? STICKER_HIGH(this.sOne)
+        : STICKER_LOW(this.sOne);
+    this.sTwoStickerComment =
+      this.sTwoStickerCount >= this.sOneStickerCount
+        ? STICKER_HIGH(this.sTwo)
+        : STICKER_LOW(this.sTwo);
+  };
+
+  generateAverageRTComments = () => {
+    const MIN = Math.min(this.sOneAverageRT, this.sTwoAverageRT);
+    const MAX = Math.max(this.sOneAverageRT, this.sTwoAverageRT);
+    const DIFF = MAX - MIN;
+    const AVERAGE_RT_LOW = sender =>
+      `Always on your phone, I see, ${sender}! 🤓 On average, you are ${parseInt(
+        (DIFF / MAX) * 100
+      )}% quicker to respond!`;
+    const AVERAGE_RT_HIGH = sender =>
+      `Quite the busy one, ${sender}! 😎 On average, you take ${parseInt(
+        (DIFF / MIN) * 100
+      )}% longer to return your texts!`;
+    this.sOneAverageRTComment =
+      this.sOneAverageRT >= this.sTwoAverageRT
+        ? AVERAGE_RT_HIGH(this.sOne)
+        : AVERAGE_RT_LOW(this.sOne);
+    this.sTwoAverageRTComment =
+      this.sTwoAverageRT >= this.sOneAverageRT
+        ? AVERAGE_RT_HIGH(this.sTwo)
+        : AVERAGE_RT_LOW(this.sTwo);
+  };
+
+  generateComments = () => {
+    //TODO : GENERATE COMMENTS EACH METRIC
+    this.generateMessageComments();
+    this.generateWordComments();
+    this.generateWPMComments();
+    this.generatePhotoComments();
+    this.generateVideoComments();
+    this.generateStickerComments();
+    this.generateAverageRTComments();
   };
 }
 

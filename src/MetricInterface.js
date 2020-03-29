@@ -9,6 +9,8 @@ class MetricInterface extends Component {
       return (
         <MetricGraphing
           index={this.props.index}
+          startDate={this.props.startDate}
+          endDate={this.props.endDate}
           title={this.props.title}
           sOne={this.props.sOne}
           sTwo={this.props.sTwo}
@@ -22,11 +24,15 @@ class MetricInterface extends Component {
     return (
       <MetricNumerical
         index={this.props.index}
+        startDate={this.props.startDate}
+        endDate={this.props.endDate}
         title={this.props.title}
         sOne={this.props.sOne}
         sTwo={this.props.sTwo}
         sOneMetric={this.props.sOneMetric}
         sTwoMetric={this.props.sTwoMetric}
+        sOneComment={this.props.sOneComment}
+        sTwoComment={this.props.sTwoComment}
       />
     );
   }
