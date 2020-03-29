@@ -65,10 +65,10 @@ These are the key ⚒ frameworks and tools ⚒ which were used extensively durin
 
 
 ## 📸 Usage & Demo 📸
-<img href="https://telestat-817a8.firebaseapp.com/ src="readme_mockups/messages.JPG" /><br><br>
-<img href="https://telestat-817a8.firebaseapp.com/ src="readme_mockups/wpm.JPG" /><br><br>
-<img href="https://telestat-817a8.firebaseapp.com/ src="readme_mockups/stickers.JPG" /><br><br>
-<img href="https://telestat-817a8.firebaseapp.com/ src="readme_mockups/rt_graph.JPG" /><br><br>
+<img href="https://telestat-817a8.firebaseapp.com/" src="readme_mockups/messages.JPG" /><br><br>
+<img href="https://telestat-817a8.firebaseapp.com/" src="readme_mockups/wpm.JPG" /><br><br>
+<img href="https://telestat-817a8.firebaseapp.com/" src="readme_mockups/stickers.JPG" /><br><br>
+<img href="https://telestat-817a8.firebaseapp.com/" src="readme_mockups/rt_graph.JPG" /><br><br>
 
 
 
