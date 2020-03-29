@@ -9,7 +9,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <img href="[https://telestat-817a8.firebaseapp.com/](https://telestat-817a8.firebaseapp.com/)" src="readme_mockups/Logo.jpg" />
+  <img href="[https://telestat-817a8.firebaseapp.com/](https://telestat-817a8.firebaseapp.com/)" src="readme_mockups/logo.jpg" />
 </p>
 
 
@@ -71,9 +71,9 @@ These are the key ⚒ frameworks and tools ⚒ which were used extensively durin
 
 
 ## 📸 Usage & Demo 📸
-<img src="readme_mockups/landing_page.JPG" /><br><br>
-<img src="readme_mockups/message.JPG" /><br><br>
+<img src="readme_mockups/messages.JPG" /><br><br>
 <img src="readme_mockups/wpm.JPG" /><br><br>
+<img src="readme_mockups/stickers.JPG" /><br><br>
 <img src="readme_mockups/rt_graph.JPG" /><br><br>
 
 
