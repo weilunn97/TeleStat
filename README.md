@@ -6,13 +6,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  
+  <img href="https://telestat-817a8.firebaseapp.com/" src="readme_mockups/logo.png" /><br><br>
   <h1 align="center"><a href="https://telestat-817a8.firebaseapp.com/">🌐 TeleStat 🌐</a></h1>
-
+  <a src=""
   <p align="center">
     Built to provide 🔎 insight 🔎 into your Telegram conversations
-    <p align="center">
-    The Telegram-equivalent of <a href="https://github.com/weilunn97/WhatsAnalyzer--Django-/blob/master/README.md">WhatsAnalyzer Django
     <br />
     <br />
     <br />
