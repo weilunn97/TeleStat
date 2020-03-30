@@ -46,9 +46,9 @@
 ## ✏ About The Project ✏
 <p align="center">
   <a href="https://weilunn97.wixsite.com/journeywithjed">
-    <img href="https://telestat-817a8.firebaseapp.com/ src="readme_mockups/landing_page.JPG" />
+    <img src="readme_mockups/landing_page.JPG" />
   </a>
-
+  
 Ever wanted to get a deep dive into your Telegram chats? TeleStat provides you a side-by-side comparison on various metrics, including the **message, words, photos, videos, and stickers count**, as well as the average reply timings of both parties in the conversation!  
 <br><br>
 
