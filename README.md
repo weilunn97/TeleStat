@@ -3,12 +3,16 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
-<!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <img href="https://telestat-817a8.firebaseapp.com/" src="readme_mockups/logo.png" /><br><br>
+  
+  <!-- PROJECT LOGO -->
+  <a href="https://telestat-817a8.firebaseapp.com/">
+    <img href="" src="readme_mockups/logo.png" /><br><br>
+  </a>
+  
+  <a src="https://telestat-817a8.firebaseapp.com/"
   <h1 align="center"><a href="https://telestat-817a8.firebaseapp.com/">🌐 TeleStat 🌐</a></h1>
-  <a src=""
   <p align="center">
     Built to provide 🔎 insight 🔎 into your Telegram conversations
     <br />
