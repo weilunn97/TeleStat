@@ -25,5 +25,6 @@ yarn-error.log*
 node_modules/
 .firebase/
 .idea/
-functions/
+functions/*
 firebase
+functions/telestat-817a8-firebase-adminsdk-h6lla-903704ff66
