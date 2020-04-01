@@ -3,16 +3,18 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
-<!-- PROJECT LOGO -->
 <br />
 <p align="center">
   
+  <!-- PROJECT LOGO -->
+  <a href="https://telestat-817a8.firebaseapp.com/">
+    <img href="" src="readme_mockups/logo.png" /><br><br>
+  </a>
+  
+  <!-- TITLE -->
   <h1 align="center"><a href="https://telestat-817a8.firebaseapp.com/">🌐 TeleStat 🌐</a></h1>
-
   <p align="center">
     Built to provide 🔎 insight 🔎 into your Telegram conversations
-    <p align="center">
-    The Telegram-equivalent of <a href="https://github.com/weilunn97/WhatsAnalyzer--Django-/blob/master/README.md">WhatsAnalyzer Django
     <br />
     <br />
     <br />
@@ -44,9 +46,9 @@
 ## ✏ About The Project ✏
 <p align="center">
   <a href="https://weilunn97.wixsite.com/journeywithjed">
-    <img href="https://telestat-817a8.firebaseapp.com/ src="readme_mockups/landing_page.JPG" />
+    <img src="readme_mockups/landing_page.JPG" />
   </a>
-
+  
 Ever wanted to get a deep dive into your Telegram chats? TeleStat provides you a side-by-side comparison on various metrics, including the **message, words, photos, videos, and stickers count**, as well as the average reply timings of both parties in the conversation!  
 <br><br>
 
