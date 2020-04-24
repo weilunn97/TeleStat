@@ -45,7 +45,7 @@
 
 ## ✏ About The Project ✏
 <p align="center">
-  <a href="https://weilunn97.wixsite.com/journeywithjed">
+  <a href="https://telestat-817a8.firebaseapp.com/">
     <img src="readme_mockups/landing_page.JPG" />
   </a>
   
@@ -67,10 +67,10 @@ These are the key ⚒ frameworks and tools ⚒ which were used extensively durin
 
 
 ## 📸 Usage & Demo 📸
-<img href="https://telestat-817a8.firebaseapp.com/" src="readme_mockups/messages.JPG" /><br><br>
-<img href="https://telestat-817a8.firebaseapp.com/" src="readme_mockups/wpm.JPG" /><br><br>
-<img href="https://telestat-817a8.firebaseapp.com/" src="readme_mockups/stickers.JPG" /><br><br>
-<img href="https://telestat-817a8.firebaseapp.com/" src="readme_mockups/rt_graph.JPG" /><br><br>
+<a href="https://telestat-817a8.firebaseapp.com/" target="_blank"><img src="readme_mockups/messages.JPG" /></a><br><br>
+<a href="https://telestat-817a8.firebaseapp.com/" target="_blank"><img src="readme_mockups/wpm.JPG" /></a><br><br>
+<a href="https://telestat-817a8.firebaseapp.com/" target="_blank"><img src="readme_mockups/stickers.JPG" /></a><br><br>
+<a href="https://telestat-817a8.firebaseapp.com/" target="_blank"><img src="readme_mockups/rt_graph.JPG" /></a><br><br>
 
 
 
