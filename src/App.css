@@ -39,6 +39,7 @@
 .Main-header {
     align-items: center;
     background-color: antiquewhite;
+    background-image: url("metric_bg/bg_home.jpg");
     color: antiquewhite;
     display: flex;
     flex-direction: column;

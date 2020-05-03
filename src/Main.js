@@ -8,7 +8,7 @@ class Main extends Component {
       <div className="Main">
         <header className="Main-header">
           <img src={logo} className="Main-logo" alt="logo" />
-          <p>TeleStat</p>
+          <p/>
           <div>
             <input
               id="App-upload-button"
