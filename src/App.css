@@ -347,7 +347,7 @@ input {
 /***ACTUAL SCATTERPLOT***/
 .ScatterPlot {
     position: absolute;
-    margin-top: 6em;
+    padding-top: 100em;
 }
 
 @keyframes Main-logo-spin {
